@@ -11,3 +11,9 @@
 #### two files:
     kill -l 1234 > killout.txt > killerr.txt
     
+    
+### Cut and find top 100 lines from file
+#### file: dump.txt
+#### separator: ":"
+    cut -f 2 -d ":" dump.txt|sort|uniq -c|sort -r|head -n 100
+    
