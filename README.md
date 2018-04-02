@@ -12,10 +12,6 @@
     kill -l 1234 > killout.txt > killerr.txt
     
     
-### Cut and find top 100 lines from file
-#### file: dump.txt
-#### separator: ":"
-    cut -f 2 -d ":" dump.txt|sort|uniq -c|sort -r|head -n 100
     
 
 ### Conditionals
@@ -25,12 +21,21 @@
     elif [ -n "$string" ]; then
       echo "String is not empty"
     fi
-    
+
+## File operations
+
 ### Reading lines
 
     cat file.txt | while read line; do
       echo $line
     done
+    
+### Cut and find top 100 lines from file
+file: dump.txt
+separator: ":"
+
+    cut -f 2 -d ":" dump.txt|sort|uniq -c|sort -r|head -n 100    
+    
     
 ## Loops
 
@@ -51,3 +56,40 @@ With step size
     for i in {5..50..5}; do
         echo "Welcome $i"
     done
+    
+## Functions
+
+### Defining functions
+
+    myfunc() {
+        echo "hello $1"
+    }
+    # Same as above (alternate syntax)
+    function myfunc() {
+        echo "hello $1"
+    }
+    myfunc "John"
+    
+### Returning values
+
+    myfunc() {
+        local myresult='some value'
+        echo $myresult
+    }
+    result=$(myfunc)
+    
+### Raising errors
+
+    myfunc() {
+      return 1
+    }
+    if myfunc; then
+      echo "success"
+    else
+      echo "failure"
+    fi
+
+## Git
+
+    git commit && git push
+    git commit || echo "Commit failed"
