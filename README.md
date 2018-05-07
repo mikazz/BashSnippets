@@ -27,6 +27,10 @@
 ### Output the number of lines
     wc -l
 
+### Remove first n lines from file
+    sed -i '1,n' file.txt
+
+
 
 ### Reading lines
 
