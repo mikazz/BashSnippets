@@ -24,6 +24,10 @@
 
 ## File operations
 
+### Output the number of lines
+    wc -l
+
+
 ### Reading lines
 
     cat file.txt | while read line; do
